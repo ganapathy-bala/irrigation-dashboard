@@ -1,5 +1,4 @@
-import type { SensorReading, WeatherData, AlertLogEntry, DecisionState, CropType } from "../types/sensor";
-export const mockSensorReading: SensorReading = {
+import type { SensorReading, WeatherData, AlertLogEntry, DecisionState, CropType, GrowthStage } from "../types/sensor";export const mockSensorReading: SensorReading = {
   soilMoisture: 38,
   temperature: 29,
   humidity: 62,
@@ -38,3 +37,11 @@ export const cropThresholds: Record<CropType, number> = {
   rice: 55,
   groundnut: 30,
 };
+export const mockEnergyState = {
+  batterySOC: 72,
+  solarIrradiance: 480,
+  predictedSunlightHours: 4.5,
+};
+
+export const mockGrowthStage: GrowthStage = "vegetative";
+export const mockSoilTemperature = 26;

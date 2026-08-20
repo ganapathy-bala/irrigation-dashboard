@@ -7,6 +7,9 @@ import WaterSavedCard from "./components/WaterSavedCard";
 import CropSelector from "./components/CropSelector";
 import AlertLog from "./components/AlertLog";
 import { useLiveSensorData } from "./hooks/useLiveSensorData";
+import { useLiveWeather } from "./hooks/useLiveWeather";
+import { computeCoOptimizedDecision } from "./logic/coOptimizationEngine";
+import { mockEnergyState, mockGrowthStage } from "./data/mockData";
 import {
   mockDecision,
   mockWeather,
@@ -18,14 +21,24 @@ import {
 function App() {
   const [selectedCrop, setSelectedCrop] = useState<"wheat" | "rice" | "groundnut">("wheat");
   const { sensorData, isLive } = useLiveSensorData();
+  const weather = useLiveWeather();
+  const decision = computeCoOptimizedDecision(
+  sensorData.soilMoisture,
+  selectedCrop,
+  mockGrowthStage,
+  sensorData.temperature,
+  sensorData.humidity,
+  weather.rainProbability,
+  mockEnergyState
+);
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6">
-      <h1 className="text-3xl font-bold text-green-800 mb-6">
-        🌱 Smart Irrigation Dashboard
-      </h1>
+    <div className="min-h-screen bg-[#0a0e14] p-6">
+      <h1 className="text-3xl font-bold text-emerald-400 mb-1 drop-shadow-[0_0_12px_rgba(52,211,153,0.5)]">
+  🌱 Smart Irrigation Dashboard
+</h1>
 
-      <p className="text-sm text-slate-500 mb-6">
+      <p className="text-sm text-slate-400 mb-6">
         {isLive ? "🟢 Live sensor data" : "⚪ Showing demo data — waiting for sensor"}
       </p>
 
@@ -36,7 +49,7 @@ function App() {
       </div>
 
       <div className="mb-6">
-        <DecisionCard decision={mockDecision} weather={mockWeather} />
+     <DecisionCard decision={decision} weather={weather} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">

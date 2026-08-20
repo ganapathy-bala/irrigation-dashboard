@@ -6,7 +6,7 @@ interface WaterSavedCardProps {
 
 function WaterSavedCard({ liters }: WaterSavedCardProps) {
   return (
-    <div className="bg-gradient-to-br from-cyan-600 to-blue-700 rounded-2xl p-6 shadow-md text-white flex items-center gap-4">
+    <div className="bg-gradient-to-br from-cyan-600 to-blue-800 rounded-2xl p-6 shadow-[0_0_25px_rgba(6,182,212,0.3)] text-white flex items-center gap-4">
       <div className="bg-white/20 rounded-xl p-3">
         <Droplets size={32} />
       </div>

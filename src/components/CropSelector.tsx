@@ -14,10 +14,10 @@ const crops: { value: CropType; label: string }[] = [
 
 function CropSelector({ selectedCrop, onSelectCrop }: CropSelectorProps) {
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+    <div className="bg-[#131826] border border-emerald-500/20 rounded-2xl p-5 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
       <div className="flex items-center gap-2 mb-3">
-        <Wheat className="text-green-700" size={20} />
-        <h3 className="text-lg font-semibold text-slate-700">Crop Type</h3>
+        <Wheat className="text-emerald-400" size={20} />
+        <h3 className="text-lg font-semibold text-slate-200">Crop Type</h3>
       </div>
       <div className="flex gap-2">
         {crops.map((crop) => (
@@ -26,8 +26,8 @@ function CropSelector({ selectedCrop, onSelectCrop }: CropSelectorProps) {
             onClick={() => onSelectCrop(crop.value)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition ${
               selectedCrop === crop.value
-                ? "bg-green-600 text-white"
-                : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                ? "bg-emerald-500 text-black shadow-[0_0_12px_rgba(16,185,129,0.6)]"
+                : "bg-slate-800 text-slate-300 hover:bg-slate-700"
             }`}
           >
             {crop.label}

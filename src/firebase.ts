@@ -3,6 +3,7 @@ import { getDatabase } from "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyCiy7_i5-DsnDxwE2oTdaFH6ahjVW1UhSY",
   authDomain: "irrigation-dashboard-ff361.firebaseapp.com",
+  databaseURL:"https://irrigation-dashboard-ff361-default-rtdb.firebaseio.com",
   projectId: "irrigation-dashboard-ff361",
   storageBucket: "irrigation-dashboard-ff361.firebasestorage.app",
   messagingSenderId: "933176357908",
