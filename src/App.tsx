@@ -8,7 +8,6 @@ import CropSelector from "./components/CropSelector";
 import AlertLog from "./components/AlertLog";
 import { useLiveSensorData } from "./hooks/useLiveSensorData";
 import {
-  mockSensorReading,
   mockDecision,
   mockWeather,
   mockMoistureHistory,
